@@ -44,7 +44,8 @@ function setup(){
 
   chaoInv=createSprite(width/2,height-600,width,125);
   chaoInv.visible=false;
-  chao=createSprite(300,280,600,25);
+
+  chao=createSprite(width/2,height-670,width,125);
   chao.addImage(chaoIMG);
   
   trex=createSprite(50,height-700,20,20);
@@ -54,12 +55,12 @@ function setup(){
   trex.addAnimation("trexDie", trexMorto);
   trex.scale=0.4;
   
-  gameOver=createSprite(280,140,10,10);
+  gameOver=createSprite(width/2,height-780);
   gameOver.addImage("gameOver",gameOverImg);
   gameOver.scale=0.6
   gameOver.visible=false;
 
-  reStart=createSprite(280,190,20,20);
+  reStart=createSprite(width/2,height-740);
   reStart.addImage("reStart",reStartImg); 
   reStart.scale=0.4;
   reStart.visible=false;
@@ -77,8 +78,8 @@ function draw(){
     grupoNuvem.destroyEach();
   }
   
-  text("Pontuação: "+ score,450,60);
-  text("TIME: "+ tempo,200,60);
+  text("Pontuação: "+ score,width-100,height-900);
+  text("TIME: "+ tempo,width-200,height-900);
   
   if(chao.x<0){
     chao.x=chao.width/2;
@@ -125,8 +126,9 @@ function draw(){
     gameOver.visible=true;
     reStart.visible=true;
 
-    if(mousePressedOver(reStart)){
+    if(touches.length > 0 || mousePressedOver(reStart)){
       reset();    
+      touches = [];
     }
   }
 
@@ -141,7 +143,7 @@ function draw(){
 
   function spawClouds(){
     if(frameCount % Math.round(random(80,100))==0){
-      var cloud=createSprite(600,60,50,20);
+      var cloud=createSprite(width-600,height-800,50,20);
       cloud.velocityX= -(3+2* score/200);
       cloud.addImage(cloudImg);
       cloud.y=Math.round(random(10,150))
@@ -153,7 +155,7 @@ function draw(){
 
   function spawCactus(){
     if(frameCount % 150 ==0){
-    var cactus=createSprite(630,260,30,30);
+    var cactus=createSprite(width-600,height-675,30,30);
     cactus.velocityX= -(3+2* score/200);
     cactus.scale=0.5;
     grupoCacto.add(cactus);
