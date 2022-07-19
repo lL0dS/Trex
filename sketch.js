@@ -48,12 +48,12 @@ function setup(){
   chao=createSprite(width/2,height/2,width,125);
   chao.addImage(chaoIMG);
   
-  trex=createSprite(width-1850,height-475,20,20);
+  trex=createSprite(width-1500,height-475,20,20);
   trex.setCollider("circle",0,0,30);
   //trex.debug=true;
   trex.addAnimation("trexrun",trex_running);
   trex.addAnimation("trexDie", trexMorto);
-  trex.scale=0.4;
+  trex.scale=0.6;
   
   gameOver=createSprite(width/2,height-780);
   gameOver.addImage("gameOver",gameOverImg);
