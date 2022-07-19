@@ -48,7 +48,7 @@ function setup(){
   chao=createSprite(width/2,height/2,width,125);
   chao.addImage(chaoIMG);
   
-  trex=createSprite(width-1500,height-475,20,20);
+  trex=createSprite(width/5,height-475,20,20);
   trex.setCollider("circle",0,0,30);
   //trex.debug=true;
   trex.addAnimation("trexrun",trex_running);
